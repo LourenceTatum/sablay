@@ -1,0 +1,800 @@
+
+
+  
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --color-background: #000000; /* Pure Black - The foundation */
+    --color-text-primary: #ffffff; /* Pure White - High contrast */
+    --color-text-secondary: #aaaaaa; /* Light Gray - Subtle detail */
+    --font-gothic: 'Montserrat', serif; /* For dramatic headings */
+    font-family: 'UnifrakturCookk', serif;
+    color: silver;
+    letter-spacing: 3px;
+    text-shadow: 0 0 5px black, 0 0 10px #333, 1px 1px 2px white;
+}
+
+body {
+    background-color: var(--color-background);
+    color: var(--color-text-primary);
+    font-family: var(--font-body);
+    min-height: 100vh;
+}
+
+a {
+    color: var(--color-text-primary);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: var(--color-text-secondary); /* Subtle hover effect */
+}
+
+/* --- 2. Header and Navigation (Minimalist and Structured) --- */
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    border-bottom: 1px solid #1a1a1a; 
+}
+
+.logo {
+    font-family: var(--font-gothic);
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.nav-menu, .nav-icons {
+    display: flex;
+    gap: 30px;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    font-weight: 300;
+}
+
+
+.hero-section {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 40px 0;
+}
+
+.hero-content {
+    width: 90%;
+    max-width: 1400px;
+}
+
+.product-image {
+    height: 600px; /* Large visual area */
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; /* Align content to the bottom */
+    align-items: center;
+    text-align: center;
+    padding-bottom: 50px;
+    /* This box-shadow creates a subtle, deep frame effect */
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.5) inset; 
+}
+
+.hero-title {
+    font-family: var(--font-gothic);
+    font-size: 3rem;
+    letter-spacing: 5px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.cross-icon {
+    font-size: 2.5rem; /* Large gothic accent */
+    margin: 0 15px;
+}
+
+.hero-subtitle {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    margin-bottom: 25px;
+    font-weight: 300;
+}
+
+.cta-button {
+    background-color: transparent;
+    color: var(--color-text-primary);
+    border: 1px solid var(--color-text-primary);
+    padding: 10px 30px;
+    text-transform: uppercase;
+    font-weight: 400;
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+}
+
+.cta-button:hover {
+    background-color: var(--color-text-primary);
+    color: var(--color-background); /* Invert colors on hover for a flash */
+}
+
+/* --- 4. Gallery Preview (Simple and Clean) --- */
+.gallery-preview {
+    padding: 60px 40px;
+    text-align: center;
+}
+
+.gallery-preview h2 {
+    font-family: var(--font-gothic);
+    font-size: 2rem;
+    margin-bottom: 40px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.product-card {
+    height: 350px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* --- 6. Authentication Forms (Modal & Dark Contrast) --- */
+
+/* The Modal (The black overlay) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 100; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.9); /* Very dark semi-transparent overlay */
+    padding-top: 50px;
+}
+
+/* Modal Content (The form box) */
+.modal-content {
+    background-color: var(--color-background); /* Pure black background for the form box */
+    margin: 5% auto; /* 5% from the top and centered */
+    padding: 40px;
+    border: 1px solid #333333; /* A slight, dark border for definition */
+    width: 90%; 
+    max-width: 400px; /* Chrome Hearts often uses smaller, contained elements */
+    position: relative;
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.05); /* Subtle white glow effect */
+}
+
+/* Close Button Style */
+.close-button {
+    color: var(--color-text-primary);
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: var(--color-text-secondary);
+}
+
+/* Form Styles */
+.auth-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-title {
+    font-family: var(--font-gothic);
+    text-align: center;
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+    letter-spacing: 2px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 12px 0; /* Padding only top/bottom for minimalist look */
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid var(--color-text-secondary); /* Only a bottom border */
+    color: var(--color-text-primary);
+    font-size: 1rem;
+    font-family: var(--font-body);
+    font-weight: 300;
+    letter-spacing: 0.5px;
+}
+
+/* Style the placeholder text */
+::placeholder {
+    color: var(--color-text-secondary);
+    opacity: 1; 
+    text-transform: uppercase;
+}
+
+input:focus {
+    outline: none;
+    border-bottom: 1px solid var(--color-text-primary); /* Bright white focus line */
+}
+
+.auth-button {
+    background-color: var(--color-text-primary); /* Black button, white text */
+    color: var(--color-background);
+    border: 1px solid var(--color-text-primary);
+    padding: 12px 20px;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: 2px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: all 0.3s;
+    --font-body: 'UnifrakturCook', sans-serif;
+}
+
+.auth-button:hover {
+    background-color: var(--color-background);
+    color: var(--color-text-primary);
+}
+
+.switch-link {
+    text-align: center;
+    margin-top: 25px;
+    font-size: 0.9rem;
+    color: var(--color-text-secondary);
+}
+
+.logo-link {
+    font-family: var(--font-family);
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-decoration: none;
+    color: var(--color-text-primary);
+    cursor: pointer;
+}
+
+/* --- 1. Global Reset & Body Styles (The Dark Canvas) --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* Updated font variables to match the user's latest HTML (UnifrakturCook for gothic flair) */
+    --color-background: #000000; /* Pure Black - The foundation */
+    --color-text-primary: #ffffff; /* Pure White - High contrast */
+    --color-text-secondary: #aaaaaa; /* Light Gray - Subtle detail */
+    --font-gothic: 'UnifrakturCook', serif; /* For dramatic headings/logo (based on user's new link) */
+    --font-body: 'Montserrat', sans-serif; /* For clean, modern text */
+}
+
+body {
+    background-color: var(--color-background);
+    color: var(--color-text-primary);
+    font-family: var(--font-body);
+    min-height: 100vh;
+}
+
+a {
+    color: var(--color-text-primary);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: var(--color-text-secondary); /* Subtle hover effect */
+}
+
+/* --- 2. Header and Navigation (Minimalist and Structured) --- */
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    border-bottom: 1px solid #1a1a1a; /* Subtle separator */
+}
+
+.logo-link {
+    font-family: var(--font-gothic);
+    font-size: 1.8rem; /* Slightly larger logo for presence */
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-decoration: none;
+    color: var(--color-text-primary);
+    cursor: pointer;
+}
+
+.nav-menu, .nav-icons {
+    display: flex;
+    gap: 30px;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    font-weight: 300; /* Light font weight for luxury feel */
+}
+
+/* Style for the current page link in the header */
+.nav-link.current-page {
+    font-weight: 700; /* Bold the active link */
+    border-bottom: 1px solid var(--color-text-primary); /* Underline the active link */
+}
+
+/* --- 3. Hero Section (Main Page) --- */
+.hero-section {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 40px 0;
+}
+
+.hero-content {
+    width: 90%;
+    max-width: 1400px;
+}
+
+.product-image {
+    height: 600px; 
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; 
+    align-items: center;
+    text-align: center;
+    padding-bottom: 50px;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.5) inset; 
+}
+
+
+
+.cross-icon {
+    font-size: 2.5rem; 
+    margin: 0 15px;
+}
+
+.hero-subtitle {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    margin-bottom: 25px;
+    font-weight: 300;
+}
+
+.cta-button {
+    background-color: transparent;
+    color: var(--color-text-primary);
+    border: 1px solid var(--color-text-primary);
+    padding: 10px 30px;
+    text-transform: uppercase;
+    font-weight: 400;
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    transition: all 0.3s;
+}
+
+.cta-button:hover {
+    background-color: var(--color-text-primary);
+    color: var(--color-background); 
+}
+
+/* --- 4. Gallery Preview (Main Page) --- */
+.gallery-preview {
+    padding: 60px 40px;
+    text-align: center;
+}
+
+.gallery-preview h2 {
+    font-family: var(--font-gothic);
+    font-size: 2rem;
+    margin-bottom: 40px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+
+
+/* --- 5. Footer --- */
+.site-footer {
+    text-align: center;
+    padding: 20px;
+    border-top: 1px solid #1a1a1a;
+    font-size: 0.75rem;
+    color: var(--color-text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* --- 6. Authentication Forms (Login/Signup Modal) --- */
+
+.modal {
+    display: none; 
+    position: fixed;
+    z-index: 100; 
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.9); 
+    padding-top: 50px;
+}
+
+.modal-content {
+    background-color: var(--color-background); 
+    margin: 5% auto; 
+    padding: 40px;
+    border: 1px solid #333333; 
+    width: 90%; 
+    max-width: 400px; 
+    position: relative;
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.05); 
+}
+
+.close-button {
+    color: var(--color-text-primary);
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: var(--color-text-secondary);
+}
+
+.auth-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-title {
+    font-family: var(--font-gothic);
+    text-align: center;
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+    letter-spacing: 2px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 12px 0; 
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid var(--color-text-secondary); 
+    color: var(--color-text-primary);
+    font-size: 1rem;
+    font-family: var(--font-body);
+    font-weight: 300;
+    letter-spacing: 0.5px;
+}
+
+::placeholder {
+    color: var(--color-text-secondary);
+    opacity: 1; 
+    text-transform: uppercase;
+}
+
+input:focus {
+    outline: none;
+    border-bottom: 1px solid var(--color-text-primary); 
+}
+
+.auth-button {
+    background-color: var(--color-text-primary); 
+    color: var(--color-background);
+    border: 1px solid var(--color-text-primary);
+    padding: 12px 20px;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: 2px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: all 0.3s;
+}
+
+.auth-button:hover {
+    background-color: var(--color-background);
+    color: var(--color-text-primary);
+}
+
+.switch-link {
+    text-align: center;
+    margin-top: 25px;
+    font-size: 0.9rem;
+    color: var(--color-text-secondary);
+}
+
+/* --- 7. Jewelry Catalog Page Styles (Jewelry.html Specific) --- */
+
+.catalog-section {
+    padding: 60px 40px;
+    text-align: center;
+}
+
+.catalog-title {
+    font-family: var(--font-gothic);
+    font-size: 2.5rem;
+    letter-spacing: 4px;
+    margin-bottom: 50px;
+    text-transform: uppercase;
+}
+
+/* Product Filters */
+.product-filters {
+    margin-bottom: 60px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.filter-button {
+    background: transparent;
+    border: 1px solid #333333; 
+    color: var(--color-text-primary);
+    padding: 8px 20px;
+    text-transform: uppercase;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 300;
+    cursor: pointer;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.filter-button:hover {
+    border-color: var(--color-text-primary); 
+}
+
+
+/* Jewelry Grid and Cards */
+.jewelry-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    gap: 40px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.jewelry-card {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    color: var(--color-text-primary); 
+}
+
+.jewelry-card .item-link {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+}
+
+.item-image {
+    width: 100%;
+    height: 350px;
+    background-size: cover;
+    background-position: center;
+    margin-bottom: 15px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5); 
+    border: 1px solid #1a1a1a;
+    transition: transform 0.3s;
+}
+
+.jewelry-card:hover .item-image {
+    transform: scale(1.01); 
+    border-color: #333333;
+}
+
+.item-name {
+    font-family: var(--font-gothic);
+    font-size: 1.3rem;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+}
+
+.item-price {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--color-text-secondary); 
+}
+
+
+/* --- 8. Add to Cart Button Styling --- */
+
+.add-to-cart-button {
+    background-color: transparent;
+    color: var(--color-text-primary);
+    border: 1px solid var(--color-text-primary);
+    padding: 10px 0; 
+    margin-top: 10px;
+    width: 100%;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.add-to-cart-button:hover {
+    background-color: var(--color-text-primary);
+    color: var(--color-background); 
+}
+
+
+/* --- 9. Shopping Cart Drawer Styling --- */
+
+.cart-drawer {
+    display: none; 
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 350px; 
+    height: 100%;
+    background-color: var(--color-background);
+    border-left: 1px solid #333333;
+    z-index: 1000;
+    transform: translateX(100%); 
+    transition: transform 0.3s ease-out;
+    padding: 20px;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.7);
+}
+
+.cart-drawer.open {
+    transform: translateX(0); 
+}
+
+.cart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #1a1a1a;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+
+.cart-items-list {
+    list-style: none;
+    padding: 0;
+    max-height: calc(100vh - 250px); 
+    overflow-y: auto;
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px dashed #1a1a1a;
+}
+
+.item-details p {
+    margin: 5px 0;
+    font-size: 0.9rem;
+}
+
+.item-details .item-name {
+    font-weight: 700;
+    text-transform: uppercase;
+    font-family: var(--font-gothic);
+}
+
+.remove-item-button {
+    background: transparent;
+    border: none;
+    color: var(--color-text-secondary);
+    cursor: pointer;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+}
+
+.cart-footer {
+    border-top: 1px solid var(--color-text-primary);
+    padding-top: 20px;
+    margin-top: 20px;
+}
+
+.cart-total-line {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.2rem;
+    font-family: var(--font-gothic);
+    margin-bottom: 20px;
+}
+
+.checkout-button {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    font-size: 1rem;
+}
+
+.cart-drawer {
+    /* 1. Initial State: Hidden and pushed off-screen */
+    display: block; /* Must be block (or flex) to allow transition */
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 350px; 
+    height: 100%;
+    background-color: var(--color-background);
+    border-left: 1px solid #333333;
+    z-index: 1000;
+    /* THIS IS CRITICAL: Hides the drawer initially */
+    transform: translateX(100%); 
+    transition: transform 0.3s ease-out;
+    padding: 20px;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.7);
+}
+
+/* 2. Active State: When the openCart() function adds the 'open' class */
+.cart-drawer.open {
+    /* THIS IS CRITICAL: Pulls the drawer into view (0 distance from the right) */
+    transform: translateX(0); 
+}
+.cart-drawer {
+    display: block !important; /* Force display */
+}
+
+/* Logout button styling */
+.logout-button {
+    background: transparent;
+    border: none;
+    color: var(--color-text-primary);
+    cursor: pointer;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    font-weight: 300;
+    font-family: inherit;
+    transition: color 0.3s;
+}
+
+.logout-button:hover {
+    color: var(--color-text-secondary);
+}
+
+.user-welcome {
+    font-size: 0.85rem;
+    color: var(--color-text-secondary);
+    text-transform: uppercase;
+}
+
